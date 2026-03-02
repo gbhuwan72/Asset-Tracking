@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Locations</h2>
+<ul>
+{% for l in locations %}
+<li>{{ l.name }} ({{ l.code }}) - {{ l.timezone }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

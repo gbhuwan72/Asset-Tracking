@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Check-in Wizard</h2>
+<form method="post" action="/checkin" class="stacked">
+  <label>Active Assignment
+    <select name="assignment_id" required>
+      {% for a in assignments %}
+        <option value="{{ a.id }}">Asset {{ a.asset_id }} assigned to {{ a.user_id }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <label>Condition Notes <textarea name="condition_notes"></textarea></label>
+  <label><input type="checkbox" name="damaged" value="true" /> Mark as damaged (moves asset to in_repair)</label>
+  <button type="submit">Complete Check-in</button>
+</form>
+{% endblock %}

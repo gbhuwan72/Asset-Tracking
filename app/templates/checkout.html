@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Checkout Wizard</h2>
+<form method="post" action="/checkout" class="stacked">
+  <label>Asset
+    <select name="asset_id" required>
+      {% for a in assets %}
+        <option value="{{ a.id }}">{{ a.asset_tag }} ({{ a.serial_number }}) - {{ a.status.value }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <label>Employee
+    <select name="user_id" required>
+      {% for u in users %}<option value="{{ u.id }}">{{ u.display_name }} ({{ u.email }})</option>{% endfor %}
+    </select>
+  </label>
+  <label>Processed By
+    <select name="initiated_by_user_id" required>
+      {% for t in techs %}<option value="{{ t.id }}">{{ t.display_name }}</option>{% endfor %}
+    </select>
+  </label>
+  <label>Due Date <input type="datetime-local" name="due_date" /></label>
+  <label>Condition Notes <textarea name="condition_notes" placeholder="Condition, accessories, notes"></textarea></label>
+  <p><strong>Policy:</strong> {{ policy }}</p>
+  <label>Signature / Acknowledgement <input name="signature" required placeholder="Type full name" /></label>
+  <button type="submit">Confirm Checkout</button>
+</form>
+{% endblock %}

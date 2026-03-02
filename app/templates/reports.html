@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Reports</h2>
+<h3>Assets by User</h3>
+<table>
+<tr><th>User</th><th>Assigned Assets</th></tr>
+{% for row in by_user %}
+<tr><td>{{ row[0] }}</td><td>{{ row[1] }}</td></tr>
+{% endfor %}
+</table>
+<h3>Overdue Assets</h3>
+<ul>{% for o in overdue %}<li>{{ o.asset_id }} assigned to {{ o.user_id }}</li>{% else %}<li>No overdue assets.</li>{% endfor %}</ul>
+{% endblock %}
