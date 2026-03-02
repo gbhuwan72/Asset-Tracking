@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Dashboard</h2>
+<div class="grid">
+  <div class="card">Total Assets <strong>{{ stats.total }}</strong></div>
+  <div class="card">Checked Out <strong>{{ stats.checked_out }}</strong></div>
+  <div class="card">In Stock <strong>{{ stats.in_stock }}</strong></div>
+  <div class="card">In Repair <strong>{{ stats.in_repair }}</strong></div>
+  <div class="card">Lost <strong>{{ stats.lost }}</strong></div>
+</div>
+<h3>Overdue Returns</h3>
+<ul>
+  {% for item in overdue %}<li>{{ item.asset_id }} due {{ item.expected_return_at }}</li>{% else %}<li>No overdue assets.</li>{% endfor %}
+</ul>
+{% endblock %}

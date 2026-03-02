@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Assets</h2>
+<form method="post" action="/assets/create" class="inline-form">
+  <input name="asset_tag" placeholder="Asset Tag" required />
+  <input name="serial_number" placeholder="Serial Number" required />
+  <input name="model" placeholder="Model" />
+  <input name="manufacturer" placeholder="Manufacturer" />
+  <button type="submit">Add Asset</button>
+</form>
+<table>
+  <thead><tr><th>Tag</th><th>Serial</th><th>Model</th><th>Status</th><th>Assigned</th></tr></thead>
+  <tbody>
+  {% for a in assets %}
+    <tr>
+      <td><a href="/assets/{{ a.id }}">{{ a.asset_tag }}</a></td>
+      <td>{{ a.serial_number }}</td>
+      <td>{{ a.model or '-' }}</td>
+      <td>{{ a.status.value }}</td>
+      <td>{{ a.assigned_user_id or '-' }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Asset {{ asset.asset_tag }}</h2>
+<p><strong>Serial:</strong> {{ asset.serial_number }}</p>
+<p><strong>Status:</strong> {{ asset.status.value }}</p>
+<p><strong>Model:</strong> {{ asset.model or '-' }}</p>
+<p><strong>ABM ID:</strong> {{ asset.abm_device_id or '-' }}</p>
+<p><strong>Kandji ID:</strong> {{ asset.kandji_device_id or '-' }}</p>
+<h3>Assignment History</h3>
+<ul>
+{% for asn in assignments %}
+<li>{{ asn.user_id }} - {{ asn.state }} - {{ asn.assigned_at }}</li>
+{% else %}<li>No assignments.</li>{% endfor %}
+</ul>
+{% endblock %}

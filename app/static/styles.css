@@ -1,0 +1,15 @@
+:root { font-family: Arial, sans-serif; }
+body { margin: 0; background: #f6f8fb; color: #0f172a; }
+header { background: #111827; color: #fff; padding: 1rem; }
+nav { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: .5rem; }
+nav a { color: #bfdbfe; text-decoration: none; font-size: .95rem; }
+main { padding: 1rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap: .75rem; }
+.card { background: #fff; padding: .85rem; border-radius: .5rem; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+.inline-form, .stacked { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.stacked { flex-direction: column; max-width: 640px; }
+input, select, textarea, button { padding: .55rem; border-radius: .4rem; border: 1px solid #cbd5e1; }
+button { background: #2563eb; color: #fff; border: none; cursor: pointer; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { border: 1px solid #e2e8f0; padding: .5rem; text-align: left; }
+@media (max-width: 768px){ nav{gap:.5rem;} table{font-size:.84rem;} button{width:100%;} }
